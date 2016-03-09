@@ -21,7 +21,7 @@ class Stack
 	private ListNode stackTop;
 	
 	/* Constructor.  The parameter size is received but ignored. */
-	public Stack(int size)
+	public Stack()
 	{
 		stackTop = null;
 	}

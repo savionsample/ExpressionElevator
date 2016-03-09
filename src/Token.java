@@ -1,5 +1,13 @@
 
-public class Token {
+/******************************************************************************
+* Savion Sample
+* Token Class
+* Contains all the information about making a Token. Contains finals representing
+* each possible paramater for making a token. This class contains getter methods
+* as well a toString method.
+******************************************************************************/
+public class Token 
+{
 	
 	private int type;
 	private double num;
@@ -20,8 +28,10 @@ public class Token {
 	public static final int SUBTRACT = 8;
 	public static final int MULTIPLY = 9;
 	public static final int DIVIDE = 10;
-	
-	
+	// Other Ops
+	public static final int EXPONENT = 11;
+	public static final int SQUAREROOT = 12;
+	public static final int LOG = 13;
 	
 	public Token(int type, double num, int op)
 	{
@@ -51,43 +61,54 @@ public class Token {
 		String total = "";
 		
 		
-		if (type == 1)
+		if (type == Token.NUMBER)
 		{
 			total += "# " + num;
 		}
-		else if (type == 2)
+		else if (type == Token.UNARY)
 		{
 			total += "u ";
-			if (op == 5)
+			if (op == Token.PLUS)
 			{
 				total += "+";
 			}
-			else if (op == 5)
+			else if (op == Token.MINUS)
 			{
 				total += "-";
+			}
+			else if (op == Token.EXPONENT)
+			{
+				total += "x";
+			}
+			else if (op == Token.SQUAREROOT)
+			{
+				total += "s";
+			}
+			else if (op == Token.LOG)
+			{
+				total += "l";
 			}
 		}
-		else if (type == 3)
+		else if (type == Token.BINARY)
 		{
 			total += "b ";
-			if (op == 7)
+			if (op == Token.ADD)
 			{
 				total += "+";
 			}
-			else if (op == 8)
+			else if (op == Token.SUBTRACT)
 			{
 				total += "-";
 			}
-			else if (op == 9)
+			else if (op == Token.MULTIPLY)
 			{
 				total += "*";
 			}
-			else if (op == 10)
+			else if (op == Token.DIVIDE)
 			{
 				total += "/";
 			}
 		}
-		
 		return total;
 		
 	}
