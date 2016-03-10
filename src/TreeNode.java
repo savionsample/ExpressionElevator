@@ -1,3 +1,12 @@
+
+/******************************************************************************
+* Savion Sample
+* TreeNode Class
+* Contains a value, a pointer to all the left TreeNodes, and a pointer to all
+* the right TreeNodes. This class also contains the getter and setter methods
+* for all of the private data.
+******************************************************************************/
+
 class TreeNode
 {
 	/** The value stored in this node. */

@@ -32,7 +32,7 @@ public class ExpressionEvaluator
 			{
 				System.out.println("Answer: " + expressionTree.evaluate());
 				System.out.println("To String Post Order:\n" + 
-									expressionTree.toStringPostOrder());
+						expressionTree.toStringPostOrder());
 			}
 			
 			System.out.println("Do you want to continue? ('q' to quit)");
@@ -150,8 +150,15 @@ public class ExpressionEvaluator
 	 */
 	private static Token numberToken()
 	{
-		System.out.println("Please enter the number");
-		double num = sc.nextDouble();
+		// (reverse) polish notation only allows positive numbers.
+		// negative numbers can be done with a unary (-)
+		double num;
+		do
+		{
+			System.out.println("Please enter a positive number");
+			num = sc.nextDouble();
+		}
+		while (num < 0);
 		sc.nextLine();
 		System.out.println(num);
 		return new Token(Token.NUMBER, num, Token.EMPTY);	
@@ -201,7 +208,7 @@ public class ExpressionEvaluator
 	 */
 	private static Token binaryToken()
 	{
-		System.out.println("Please enter the operator");
+		System.out.println("Please enter the operator: +, -, *, and /");
 		String op = sc.nextLine();
 		System.out.println(op);
 		
@@ -226,5 +233,5 @@ public class ExpressionEvaluator
 			return null;
 		}
 	}
-
+	
 }

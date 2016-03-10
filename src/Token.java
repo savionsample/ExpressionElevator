@@ -8,13 +8,13 @@
 ******************************************************************************/
 public class Token 
 {
-	
+	// private data
 	private int type;
 	private double num;
 	private int op;
 	
+	// Empty
 	public static final int EMPTY = 0;
-	
 	// Types
 	public static final int NUMBER = 1;
 	public static final int UNARY = 2;
@@ -28,7 +28,7 @@ public class Token
 	public static final int SUBTRACT = 8;
 	public static final int MULTIPLY = 9;
 	public static final int DIVIDE = 10;
-	// Other Ops
+	// Extra Ops
 	public static final int EXPONENT = 11;
 	public static final int SQUAREROOT = 12;
 	public static final int LOG = 13;
@@ -40,7 +40,7 @@ public class Token
 		this.op = op;
 	}
 
-	
+	// getter methods
 	public int getType()
 	{
 		return type;
@@ -56,6 +56,9 @@ public class Token
 		return op;
 	}
 	
+	/**
+	 * the Token's values in String format
+	 */
 	public String toString()
 	{
 		String total = "";

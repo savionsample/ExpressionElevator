@@ -36,12 +36,20 @@ public class ExpressionTree
 		return auxEvaluate(root);
 	}
 	
-	// evaluates through post order
+	/**
+	 * This method evaluates the expression by performing a postorder traversal, performing
+	 * the op after evaluating each of its children. 
+	 * This method evaluates the TreeNode's left and right children and performs
+	 * the right operation on it. 
+	 * 
+	 * @param t: a pointer to the TreeNode being worked on
+	 * @return: the results (double) of the TreeNode evaluated
+	 */
 	private Double auxEvaluate(TreeNode t)
 	{
 		if (t == null)
 		{
-			return null;
+			return 0.0;
 		}
 		else
 		{
@@ -56,6 +64,10 @@ public class ExpressionTree
 				if (val.getOp() == Token.PLUS)
 				{
 					return left;
+				}
+				else if (val.getOp() == Token.MINUS)
+				{
+					return -left;
 				}
 				else if (val.getOp() == Token.EXPONENT)
 				{
@@ -76,10 +88,6 @@ public class ExpressionTree
 						return 0.0;
 					}
 				}
-				else
-				{
-					return -left;
-				}	
 			}
 			else if (val.getType() == Token.BINARY)
 			{
@@ -113,6 +121,12 @@ public class ExpressionTree
 		return auxToStringPostOrder(root);
 	}
 	
+	/**
+	 * returns a string of the commands entered by the user
+	 * 
+	 * @param t: a pointer to the TreeNode being worked on
+	 * @return: the entire String of the user's commands
+	 */
 	private String auxToStringPostOrder(TreeNode t)
 	{
 		if (t == null)
